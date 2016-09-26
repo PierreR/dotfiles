@@ -7,7 +7,7 @@ function presources () {
 }
 
 function nixsearch () {
-    nix-env -f '<nixpkgs>' -qaP $1
+    nix-env -qaPf '<nixpkgs>' -A $1
 }
 
 export PS1='\w\[\033[01;38m\]$(__git_ps1)\[\033[00m\] → '
