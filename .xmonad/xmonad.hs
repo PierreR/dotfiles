@@ -19,12 +19,15 @@ import qualified XMonad.StackSet              as W
 -- .|. is xmonad specific : it is a bitwise "or"
 
 
--- Key bindings. 
+-- Key bindings.
 -- myKeys return a Map (associative list)
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+
+    -- launch README
+    , ((0, xK_F1 ), spawn "chromium https://github.com/CIRB/devbox/blob/master/README.md#devbox")
 
     -- launch dmenu
     , ((modm, xK_p), spawnSelected defaultGSConfig [ "chromium"  ])
@@ -32,7 +35,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
     , ((modm .|. shiftMask, xK_comma ), spawn "emacs")
-    
+
     -- rebuild nixos
     , ((modm .|. shiftMask, xK_r     ), spawn "sudo nixos-rebuild switch")
 
@@ -82,7 +85,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-   
+
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -156,7 +159,7 @@ azertyKeys conf@(XConfig {modMask = modm}) = M.fromList $
         | (i, k) <- zip (workspaces conf) [0x26,0xe9,0x22,0x27,0x28,0xa7,0xe8,0x21,0xe7,0xe0],
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-main = 
+main =
   xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
 
   where
