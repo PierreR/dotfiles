@@ -36,6 +36,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
     , ((modm .|. shiftMask, xK_comma ), spawn "emacs")
 
+    -- resize wallpaper
+    , ((modm .|. shiftMask, xK_i), spawn "feh --bg-scale ${HOME}/.wallpaper.jpg" )
+
     -- rebuild nixos
     , ((modm .|. shiftMask, xK_r     ), spawn "sudo nixos-rebuild switch")
 
