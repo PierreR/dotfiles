@@ -1,0 +1,2 @@
+[$HOME/projects/cicd/devbox-dotfiles]
+checkout = git clone git@github.com:CIRB/devbox-dotfiles.git devbox-dotfiles
