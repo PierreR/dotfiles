@@ -8,6 +8,7 @@ tmp/
 .pki/
 .local/
 .cache/
+.dmrc
 .compose-cache/
 .cabal/
 .nix-profile
@@ -19,9 +20,12 @@ tmp/
 .ghc/
 .config/mr/
 .config/vcsh/
+.config/mr/
 .config/chromium/
 .config/nvim/
 .config/htop/
+.xmonad/xmonad-x86_64-linux
+.gitignore.d/mr
 .Xauthority
 .mrconfig
 .urxvt-theme
