@@ -3,7 +3,7 @@ function sshi () {
 }
 
 function presources () {
-    puppetresources -p . -o "$1" --hiera ./tests/hiera.yaml --pdbfile tests/facts.yaml ''${@:2}
+    puppetresources -p . -o "$1" --hiera ./tests/hiera.yaml --pdbfile tests/facts.yaml "${@:2}"
 }
 
 function nixsearch () {
