@@ -3,6 +3,7 @@
 !-------------------------------------------------------------------------------
 
 ! Xft.dpi:                    106
+! Xft.autohint:               0
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
@@ -19,7 +20,7 @@ Xft.lcdfilter:              lcddefault
 URxvt.depth:                32
 ! URxvt.geometry:             90x30
 URxvt.transparent:          false
-URxvt.fading:               0
+URxvt.fading:               1
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
@@ -28,7 +29,6 @@ URxvt.saveLines:            50
 URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
-! URxvt.font: xft:Source Code Pro:pixelsize=14
 URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
 URxvt*boldFont: xft:Source Code Pro for Powerline-10:bold
 ! Fix font space
@@ -39,12 +39,18 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher,color-themes
+URxvt.perl-ext-common:      default,matcher,color-themes,font-size
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          chromium
+
 URxvt.color-themes.themedir:  ~/.config/urxvt/themes
 URxvt.keysym.M-C-n:  perl:color-themes:next
 URxvt.keysym.M-C-p:  perl:color-themes:prev
+
+URxvt.keysym.M-C-Up:     font-size:increase
+URxvt.keysym.M-C-Down:   font-size:decrease
+URxvt.keysym.M-C-0:   font-size:reset
+URxvt.font-size.step: 2
 
 URxvt.color-themes.state-file: ~/.urxvt-theme
 URxvt.color-themes.autosave: 1
