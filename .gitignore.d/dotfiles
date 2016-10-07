@@ -26,6 +26,7 @@ tmp/
 .config/htop/
 .xmonad/xmonad-x86_64-linux
 .gitignore.d/mr
+.bash_history
 .Xauthority
 .mrconfig
 .urxvt-theme
