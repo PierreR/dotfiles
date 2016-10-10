@@ -1,6 +1,6 @@
-URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt*colorUL:                #859900
-URxvt*colorBD:                #268bd2
+URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=14:bold:antialias=true:hinting=true
+
 URxvt*background:             #fdf6e3
 URxvt*foreground:             #657b83
 URxvt*cursorColor:            #586e75
@@ -9,20 +9,4 @@ URxvt*pointerColorForeground: #586e75
 URxvt*scrollColor:            93a1a1
 URxvt*borderColor:            #fdf6e3
 
-URxvt*color0:                 #073642
-URxvt*color1:                 #dc322f
-URxvt*color2:                 #859900
-URxvt*color3:                 #b58900
-URxvt*color4:                 #268bd2
-URxvt*color5:                 #d33682
-! cyan
-URxvt*color6:                 #36b2a8
-URxvt*color7:                 #839496
-URxvt*color8:                 #657b83
-URxvt*color9:                 #cb4b16
-URxvt*color10:                #93a1a1
-URxvt*color11:                #839496
-! dark blue
-URxvt*color12:                #366576
-URxvt*color13:                #6c71c4
-URxvt*color14:                #586e75
+URxvt*color12: #2c515e
