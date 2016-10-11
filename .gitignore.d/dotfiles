@@ -8,6 +8,7 @@ tmp/
 .dbus/
 .pki/
 .local/
+.bundle/
 .cache/
 .dmrc
 .compose-cache/
@@ -33,6 +34,7 @@ tmp/
 .urxvt-theme
 .histfile
 *.hi
+*.log
 *.o
 *.pid
 *errors*
