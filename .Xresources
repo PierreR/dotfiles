@@ -29,16 +29,16 @@ URxvt.perl-ext-common:      default,matcher,font-size,color-themes,clipboard
 URxvt.matcher.button:       1
 
 URxvt.color-themes.state-file: ~/.urxvt-theme
-URxvt.color-themes.autosave: 1
-URxvt.keysym.M-C-l:  perl:color-themes:load-state
-URxvt.keysym.M-C-s:  perl:color-themes:save-state
-URxvt.color-themes.themedir:  ~/.config/urxvt/themes
-URxvt.keysym.M-C-n:  perl:color-themes:next
-URxvt.keysym.M-C-p:  perl:color-themes:prev
+URxvt.color-themes.autosave:   1
+URxvt.keysym.M-C-l:            perl:color-themes:load-state
+URxvt.keysym.M-C-s:            perl:color-themes:save-state
+URxvt.color-themes.themedir:   ~/.config/urxvt/themes
+URxvt.keysym.M-C-n:            perl:color-themes:next
+URxvt.keysym.M-C-p:            perl:color-themes:prev
 
-URxvt.keysym.M-C-Up:     font-size:increase
-URxvt.keysym.M-C-Down:   font-size:decrease
-URxvt.keysym.M-C-0:   font-size:reset
+URxvt.keysym.C-S-Up:     font-size:increase
+URxvt.keysym.C-S-Down:   font-size:decrease
+URxvt.keysym.C-0:        font-size:reset
 
 URxvt.font-size.step: 4
 
@@ -67,9 +67,6 @@ URxvt.pointerBlank:         true
 URxvt*background:           #fdf6e3
 URxvt*foreground:           #657b83
 
-! black
-*color0:  #2E3436
-*color8:  #555753
 ! red
 *color1:  #a40000
 *color9:  #EF2929
