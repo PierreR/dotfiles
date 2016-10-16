@@ -10,4 +10,6 @@ function nixsearch () {
     nix-env -qaPf '<nixpkgs>' -A $1
 }
 
+alias heyaml='./bin/eyaml.sh $@'
+
 export PS1='\w\[\033[01;38m\]$(__git_ps1)\[\033[00m\] → '
