@@ -5,7 +5,7 @@
 import           Data.Monoid
 import           System.Exit
 import           XMonad
-import           XMonad.Actions.GridSelect
+import qualified XMonad.Actions.GridSelect as GridSelect
 
 import qualified Data.Map                     as M
 import           Graphics.X11.ExtraTypes.XF86
@@ -31,7 +31,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html")
 
     -- launch dmenu
-    , ((modm, xK_p), spawnSelected defaultGSConfig [ "chromium"  ])
+    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "chromium" ])
 
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
