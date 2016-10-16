@@ -27,7 +27,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch README
-    , ((0, xK_F1 ), spawn "chromium https://github.com/CIRB/devbox/blob/master/README.md#devbox")
+    , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html")
 
     -- launch dmenu
     , ((modm, xK_p), spawnSelected defaultGSConfig [ "chromium"  ])
