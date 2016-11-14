@@ -12,6 +12,7 @@ tmp/
 .bundle/
 .cache/
 .dmrc
+.aspell.*
 .compose-cache/
 .cabal/
 .nix-profile
@@ -27,6 +28,9 @@ tmp/
 .config/chromium/
 .config/nvim/
 .config/htop/
+.config/parcellite/
+.config/Brackets/
+.config/gtk-2.0/
 .xmonad/xmonad-x86_64-linux
 .gitignore.d/mr
 .bash_history
