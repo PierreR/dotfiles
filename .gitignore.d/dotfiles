@@ -1,6 +1,7 @@
 projects/
 Downloads/
 tmp/
+.puppetlabs/
 .gnupg/
 .nix-channels
 .stack/
@@ -22,6 +23,7 @@ tmp/
 .parallel/
 .ssh/
 .ghc/
+.config/ranger
 .config/mr/
 .config/vcsh/
 .config/mr/
