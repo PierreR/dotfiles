@@ -1,0 +1,53 @@
+#compdef cicd
+#
+#  Completion script for cicd
+
+local ret=1
+
+_zone () {compadd dev testing staging prod}
+
+_1commands=(
+   'console:open the cicd console'
+   'stack:target all nodes in a stack'
+   'node:target one specific node'
+   'orch:apply an orchestration command'
+   'result:display command result'
+)
+
+_2stackcommand () {
+    case $words[3] in
+        stack)
+            compadd ping facts sync && ret=0
+            ;;
+        node)
+            local -a options
+            options=('facts:return static facts'
+                     'data:return configuration data'
+                     'run-puppet:apply configuration by running the puppet agent'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+        result)
+            local -a options
+            options=('-j:job id'
+                     '-n: number of result to display'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+    esac
+}
+
+
+if (( CURRENT == 2 )); then
+    _zone && ret=0
+fi
+
+if (( CURRENT == 3 )); then
+    _describe -t commands 'value' _1commands && ret=0
+fi
+
+if (( CURRENT == 4 )); then
+    _2stackcommand
+fi
+
+return ret
