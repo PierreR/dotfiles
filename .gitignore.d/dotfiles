@@ -45,3 +45,4 @@ tmp/
 *.o
 *.pid
 *errors*
+.user*

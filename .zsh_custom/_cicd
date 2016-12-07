@@ -10,20 +10,27 @@ _1commands=(
    'console:open the cicd console'
    'stack:target all nodes in a stack'
    'node:target one specific node'
-   'orch:apply an orchestration command'
    'result:display command result'
 )
 
 _2stackcommand () {
     case $words[3] in
         stack)
-            compadd ping facts sync && ret=0
+            local -a options
+            options=('facts:return static facts'
+                     'data:return configuration data by key'
+                     'ping:ping nodes'
+                     'runpuppet:apply puppet configuration on subgroup.role'
+                     'sync:sync data between minions and the saltmaster'
+                     'orch:apply a orchestration command'
+                    )
+            _describe 'values' options && ret=0
             ;;
         node)
             local -a options
             options=('facts:return static facts'
                      'data:return configuration data'
-                     'run-puppet:apply configuration by running the puppet agent'
+                     'runpuppet:apply puppet configuration'
                     )
             _describe 'values' options && ret=0
             ;;
