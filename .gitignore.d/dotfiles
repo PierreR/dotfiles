@@ -6,6 +6,7 @@ tmp/
 .nix-channels
 .stack/
 .eclipse/
+.zcompdump*
 .mozilla/
 .dbus/
 .pki/
@@ -23,6 +24,7 @@ tmp/
 .parallel/
 .ssh/
 .ghc/
+.config/mimeapps.list
 .config/ranger
 .config/mr/
 .config/vcsh/
@@ -46,3 +48,4 @@ tmp/
 *.pid
 *errors*
 .user*
+.zsh_history
