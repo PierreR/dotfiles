@@ -35,6 +35,7 @@ tmp/
 .config/parcellite/
 .config/Brackets/
 .config/gtk-2.0/
+.config/Zeal/
 .xmonad/xmonad-x86_64-linux
 .gitignore.d/mr
 .bash_history
@@ -48,4 +49,5 @@ tmp/
 *.pid
 *errors*
 .user*
+.nixpkgs_ref
 .zsh_history

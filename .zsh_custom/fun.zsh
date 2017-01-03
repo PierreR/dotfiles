@@ -1,11 +1,11 @@
-function sshi () {
+sshi () {
 	  ssh -A -i ~/.ssh/alhazen_rsa alhazen@$1
 }
 
-function presources () {
+presources () {
     puppetresources -p . -o "$1" --hiera ./tests/hiera.yaml --pdbfile tests/facts.yaml "${@:2}"
 }
 
-function nixsearch () {
+nixsearch () {
     nix-env -qaPf '<nixpkgs>' -A $1
 }
