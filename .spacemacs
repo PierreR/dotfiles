@@ -305,7 +305,7 @@ you should place your code here."
    erc-hide-list '("JOIN" "PART" "QUIT")
    erc-prompt-for-nickserv-password nil
 
-   haskell-compile-cabal-build-command "stack build --nix --fast"
+   haskell-compile-cabal-build-command "stack install --fast"
 
    org-bullets-bullet-list '("■" "◆" "▲" "▶")
    org-agenda-files (list "~/projects/cicd/org")
