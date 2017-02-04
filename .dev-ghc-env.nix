@@ -11,7 +11,9 @@ let
   pkgs = import src { };
 
   ghc-env = pkgs.haskellPackages.ghcWithPackages (p: with p; [
+      aeson
       ansi-wl-pprint
+      async
       attoparsec
       base
       base16-bytestring
