@@ -1,3 +1,4 @@
+
 let
   bootstrap = import <nixpkgs> { };
   nixpkgs = builtins.fromJSON (builtins.readFile ./.nixpkgs.json);
@@ -10,7 +11,18 @@ let
 
   pkgs = import src { };
 
-  ghc-env = pkgs.haskellPackages.ghcWithPackages (p: with p; [
+  hlib = import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { inherit pkgs; };
+  hpkgs = pkgs.haskellPackages.override {
+    overrides = self: super: {
+      servant_0_10 = hlib.dontCheck (super.servant_0_10.overrideScope (self: super: {
+        natural-transformation = self.natural-transformation_0_4;
+        }));
+      servant-server_0_10 = hlib.dontCheck (super.servant-server_0_10.overrideScope (self: super: {
+        hspec-wai = self.hspec-wai_0_8_0;
+        }));
+      };
+  };
+  ghc-env = hpkgs.ghcWithPackages (p: with p; [
       aeson
       ansi-wl-pprint
       async
@@ -21,6 +33,7 @@ let
       case-insensitive
       containers
       cryptonite
+      dhall
       directory
       either
       exceptions
@@ -56,8 +69,8 @@ let
       regex-pcre-builtin
       scientific
       semigroups
-      servant_0_9_1_1
-      servant-client_0_9_1_1
+      servant_0_10
+      servant-client_0_10
       split
       stm
       strict-base-types
