@@ -2,10 +2,11 @@ import System.Taffybar
 
 import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
+import System.Taffybar.NetMonitor
 import System.Taffybar.SimpleClock
 import System.Taffybar.FreedesktopNotifications
-import System.Taffybar.Weather
-import System.Taffybar.MPRIS
+-- import System.Taffybar.Weather
+-- import System.Taffybar.MPRIS
 
 import System.Taffybar.Widgets.PollingBar
 import System.Taffybar.Widgets.PollingGraph
@@ -30,14 +31,18 @@ main = do
                                                       ]
                                   , graphLabel = Just "cpu"
                                   }
-  let clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %H:%M</span>" 1
+  let clock = textClockNew Nothing "<span fgcolor='orange'>%b %_d %H:%M</span>" 1
       pager = taffyPagerNew defaultPagerConfig
       note = notifyAreaNew defaultNotificationConfig
-      wea = weatherNew (defaultWeatherConfig "KMSN") 10
-      mpris = mprisNew defaultMPRISConfig
+      netw = netMonitorNew 2 "enp0s3"
+      -- american only
+      -- wea = weatherNew (defaultWeatherConfig "KMSN") 10
+      -- now playing stuff
+      -- mpris = mprisNew defaultMPRISConfig
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
       tray = systrayNew
   defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
-                                        , endWidgets = [ tray, wea, clock, mem, cpu, mpris ]
+                                        --, endWidgets = [ tray, wea, clock, mem, cpu, mpris ]
+                                        , endWidgets = [ tray, netw, clock, mem, cpu]
                                         }
