@@ -175,12 +175,6 @@ main =
     uhook = withUrgencyHookC NoUrgencyHook urgentConfig
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-    myPP = xmobarPP
-      { ppCurrent = xmobarColor "orange" "" . wrap "[" "]"
-      , ppTitle = xmobarColor "#2CE3FF" "" . shorten 50
-      , ppLayout = const "" -- to disable the layout info on xmobar
-      }
-
     myConfig  = defaultConfig
       { terminal           = "urxvt"
       , focusFollowsMouse  = False
