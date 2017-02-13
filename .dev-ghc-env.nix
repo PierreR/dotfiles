@@ -38,6 +38,7 @@ let
       either
       exceptions
       filecache
+      foldl
       formatting
       Glob
       hashable

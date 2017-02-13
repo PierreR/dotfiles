@@ -51,3 +51,4 @@ tmp/
 .user*
 .nixpkgs_ref
 .zsh_history
+.stack-work/
