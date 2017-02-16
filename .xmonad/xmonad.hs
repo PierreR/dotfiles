@@ -1,1 +1,1 @@
-/home/vagrant/.xmonad/xmonad-taffybar.hs
+xmonad-taffybar.hs

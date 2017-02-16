@@ -9,6 +9,7 @@ import           System.Exit
 
 import           XMonad
 import qualified XMonad.Actions.GridSelect as GridSelect
+import           XMonad.Actions.CycleWS
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.UrgencyHook
@@ -97,10 +98,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-
-    , ((0 , xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 1 +1.5%")
-    , ((0 , xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 1 -1.5%")
-    , ((0 , xF86XK_AudioMute),        spawn "pactl set-sink-mute 1 toggle")
+    
+    , ((modm              , xK_Right ), nextWS)
+    , ((modm              , xK_Left  ), prevWS)
     ]
     ++
 
