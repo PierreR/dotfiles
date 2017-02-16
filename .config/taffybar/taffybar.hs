@@ -32,8 +32,8 @@ main = do
                                   , graphLabel = Just "cpu"
                                   }
   let clock = textClockNew Nothing "<span fgcolor='orange'>%b %_d %H:%M</span>" 1
-      pager = taffyPagerNew defaultPagerConfig
-      note = notifyAreaNew defaultNotificationConfig
+      pager = taffyPagerNew defaultPagerConfig { widgetSep = " " }
+      note = notifyAreaNew defaultNotificationConfig 
       netw = netMonitorNew 2 "enp0s3"
       -- american only
       -- wea = weatherNew (defaultWeatherConfig "KMSN") 10
