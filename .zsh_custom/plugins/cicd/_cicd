@@ -40,6 +40,7 @@ _1commands=(
    'orch:apply an orchestration command'
    'result:display command result'
    'console:open console'
+   'gentags: generate node completion file'
 )
 
 _2stackcommand () {
