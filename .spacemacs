@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     vimscript
      asciidoc
      yaml
      ;; ----------------------------------------------------------------
@@ -315,7 +316,7 @@ you should place your code here."
    flycheck-idle-change-delay 4
 
    ;; undo-tree-auto-save-history t
-   ; undo-tree-history-directory-alist `((".*" . ,temporary-file-directory))
+   ;; undo-tree-history-directory-alist `((".*" . ,temporary-file-directory))
 
    vc-follow-symlinks t
 
@@ -329,8 +330,6 @@ you should place your code here."
 
   (global-set-key [f5] 'browse-url-of-buffer)
   (global-auto-revert-mode t)
-
-  ;; (add-to-list 'recentf-exclude "/tmp")
 
   (add-hook 'focus-out-hook 'save-buffer)
   (add-hook 'nixos-mode-hook (lambda () (setq indent-tabs-mode nil
@@ -346,6 +345,9 @@ you should place your code here."
 
   ;; Faster scrolling with C-e/C-y
   (setq-default evil-scroll-line-count 3)
+  (add-hook 'find-file-hook (lambda ()
+                              (add-to-list 'recentf-exclude "\\.stack-work\\'")
+                              (add-to-list 'recentf-exclude "\\tmp\\")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

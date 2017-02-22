@@ -4,7 +4,7 @@ style "taffybar-default" {
   color["white"] = "#ffffff"
   color["green"] = "#bcdb95"
   color["red"]   = "#ff0000"
-  color["burgundy"] = "#574453"
+  color["burgundy"] = "#473343"
 
   bg[NORMAL]   = @burgundy
   fg[NORMAL]   = @white

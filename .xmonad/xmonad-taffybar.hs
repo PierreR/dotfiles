@@ -17,6 +17,7 @@ import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.SetWMName
 import           XMonad.Layout.ZoomRow
 import           XMonad.Util.SpawnOnce
+import           XMonad.Util.Cursor
 import qualified XMonad.StackSet              as W
 
 -- Some doc
@@ -25,7 +26,7 @@ import qualified XMonad.StackSet              as W
 
 -- Key bindings.
 -- myKeys return a Map (associative list)
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
@@ -94,7 +95,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_q     ), io exitSuccess)
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -116,18 +117,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 urgentConfig :: UrgencyConfig
 urgentConfig = UrgencyConfig { suppressWhen = Focused, remindWhen = Dont }
 
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList 
 
     -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
+    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
+                                      >> windows W.shiftMaster)
 
     -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+    , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
+    , ((modm, button3), \w -> focus w >> mouseResizeWindow w
+                                      >> windows W.shiftMaster)
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
@@ -161,10 +162,10 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 myStartupHook = do
   setWMName "LG3D"
   spawnOnce "stalonetray"
+  setDefaultCursor xC_left_ptr
 
-azertyKeys conf@(XConfig {modMask = modm}) = M.fromList $
-    [((modm, xK_semicolon), sendMessage (IncMasterN (-1)))]
-    ++
+azertyKeys conf@XConfig {modMask = modm} = M.fromList $
+    ((modm, xK_semicolon), sendMessage (IncMasterN (-1))) :
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (workspaces conf) [0x26,0xe9,0x22,0x27,0x28,0xa7,0xe8,0x21,0xe7,0xe0],
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
@@ -185,7 +186,7 @@ main =
       , focusedBorderColor = "#AFAF87"
       , keys               = \c -> azertyKeys c `M.union` myKeys c
       , mouseBindings      = myMouseBindings
-      , layoutHook         = avoidStruts $ myLayout
+      , layoutHook         = avoidStruts myLayout
       , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
       }

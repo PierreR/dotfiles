@@ -24,6 +24,8 @@ tmp/
 .parallel/
 .ssh/
 .ghc/
+.swt/
+.fluxbox/
 .config/mimeapps.list
 .config/ranger
 .config/mr/
@@ -52,3 +54,7 @@ tmp/
 .nixpkgs_ref
 .zsh_history
 .stack-work/
+*.swp
+*.swo
+*.un~
+*-hsts
