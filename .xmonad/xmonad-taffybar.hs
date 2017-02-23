@@ -176,7 +176,7 @@ main =
     uhook = withUrgencyHookC NoUrgencyHook urgentConfig
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-    myConfig  = defaultConfig
+    myConfig  = def
       { terminal           = "urxvt"
       , focusFollowsMouse  = False
       , borderWidth        = 1
