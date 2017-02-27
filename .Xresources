@@ -1,63 +1,42 @@
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-
 Xft.antialias:                 true
-Xft.rgba:                      rgb
 Xft.hinting:                   true
 Xft.lcdfilter:                 lcddefault
-! Xft.dpi:                       106
-! Xft.hintstyle:                 hintmedium
-! Xft.autohint:                  0
 
 URxvt.termName:                rxvt-256color
-URxvt.iso14755:                False
-URxvt.depth:                   32
-URxvt.transparent:             false
-URxvt.fading:                  1
-URxvt.loginShell:              true
+URxvt.iso14755:                false
+URxvt.iso14755_52:             false
 URxvt.saveLines:               2000
-URxvt.lineSpace:               0
-! URxvt.internalBorder:          0
-! URxvt.geometry:                90x30
-! URxvt.urgentOnBell:            true
-! URxvt.visualBell:              true
+URxvt.urgentOnBell:            true
+URxvt.visualBell:              true
 
-URxvt.pointerBlank:            true
+URxvt.perl-ext-common:         default,matcher,font-size,keyboard-select
 
-! Fonts
-URxvt.allow_bold:              true
-URxvt*font:                    xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
-URxvt*boldFont:                xft:Source Code Pro for Powerline-10:bold
-URxvt.borderless:              true
-URxvt.scrollStyle:             rxvt
-URxvt.scrollBar:               false
-! URxvt*letterSpace: 0.5
-
-URxvt.cursorBlink:             false
-URxvt.cursorColor:             #657b83
-URxvt.cursorUnderline:         false
-
-URxvt.perl-ext-common:         default,matcher,font-size,color-themes,selection_to_clipboard,keyboard-select
-URxvt.matcher.button:          1
 URxvt.url-launcher:            chromium
-
-URxvt.keysym.M-Escape:         perl:keyboard-select:activate
-URxvt.keysym.M-s:              perl:keyboard-select:search
-
-URxvt.color-themes.state-file: ~/.urxvt-theme
-URxvt.color-themes.autosave:   1
-URxvt.keysym.M-C-l:            perl:color-themes:load-state
-URxvt.keysym.M-C-s:            perl:color-themes:save-state
-URxvt.color-themes.themedir:   ~/.config/urxvt/themes
-URxvt.keysym.M-C-n:            perl:color-themes:next
-URxvt.keysym.M-C-p:            perl:color-themes:prev
 
 URxvt.keysym.C-S-Up:           font-size:increase
 URxvt.keysym.C-S-Down:         font-size:decrease
 URxvt.keysym.C-0:              font-size:reset
 URxvt.font-size.step:          4
 
+URxvt.keysym.M-Escape:         perl:keyboard-select:activate
+URxvt.keysym.M-s:              perl:keyboard-select:search
+
+URxvt.allow_bold:              true
+URxvt.font:                    xft:Source Code Pro Medium:size=10, \
+                               xft:DejaVu Sans Mono:size=10
+URxvt*boldFont:                xft:Source Code Pro for Powerline-10:bold
+
+URxvt.depth:                   32
+URxvt.transparent:             false
+URxvt.fading:                  1
+URxvt.lineSpace:               0
+URxvt.pointerBlank:            true
+URxvt.borderless:              true
+URxvt.scrollStyle:             rxvt
+URxvt.scrollBar:               false
+URxvt.cursorBlink:             false
+URxvt.cursorColor:             #657b83
+URxvt.cursorUnderline:         false
 URxvt*background:              #fdf6e3
 URxvt*foreground:              #657b83
 
