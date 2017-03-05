@@ -61,7 +61,8 @@ values."
             shell-default-position 'bottom)
      salt
      spell-checking
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
      (version-control :variables
                       version-control-diff-tool 'diff-hl)
    )
@@ -298,8 +299,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq
-   auto-save-interval 50
-   auto-save-timeout 5
+   auto-save-interval 60
+   auto-save-timeout nil
 
    tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"
 
@@ -313,9 +314,9 @@ you should place your code here."
 
    powerline-default-separator 'alternate
 
-   flycheck-idle-change-delay 4
+   flycheck-idle-change-delay 5
 
-   ;; undo-tree-auto-save-history t
+   ; undo-tree-auto-save-history t
    ;; undo-tree-history-directory-alist `((".*" . ,temporary-file-directory))
 
    vc-follow-symlinks t
