@@ -7,7 +7,7 @@ URxvt.iso14755:                false
 URxvt.iso14755_52:             false
 URxvt.saveLines:               2000
 URxvt.urgentOnBell:            true
-URxvt.visualBell:              true
+URxvt.visualBell:              false
 
 URxvt.perl-ext-common:         default,matcher,font-size,keyboard-select
 
