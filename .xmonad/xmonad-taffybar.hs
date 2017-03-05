@@ -162,6 +162,7 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 myStartupHook = do
   setWMName "LG3D"
   spawnOnce "stalonetray"
+  spawnOnce "unclutter -root"
   setDefaultCursor xC_left_ptr
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
