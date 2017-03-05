@@ -33,6 +33,7 @@ tmp/
 .config/mr/
 .config/chromium/
 .config/nvim/
+.config/git/
 .config/htop/
 .config/parcellite/
 .config/Brackets/
