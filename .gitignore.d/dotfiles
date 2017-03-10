@@ -3,6 +3,7 @@ Downloads/
 tmp/
 .puppetlabs/
 .gnupg/
+.gnome/
 .nix-channels
 .stack/
 .eclipse/

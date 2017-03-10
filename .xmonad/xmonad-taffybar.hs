@@ -35,7 +35,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     , ((0, xK_F2 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
 
     -- launch dmenu
-    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "chromium" ])
+    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium" ])
 
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
@@ -160,10 +160,17 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 -- per-workspace layout choices.
 --
 myStartupHook = do
+  setDefaultCursor xC_left_ptr
   setWMName "LG3D"
   spawnOnce "stalonetray"
   spawnOnce "unclutter -root"
-  setDefaultCursor xC_left_ptr
+  spawnOnce "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
+
+myManageHook = composeAll
+           [ className =? "Eclipse"  --> doFloat
+           , title =? "Eclipse" --> doFloat
+           -- , appName =? "albert" --> doIgnore
+	   ]
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
     ((modm, xK_semicolon), sendMessage (IncMasterN (-1))) :
@@ -190,4 +197,5 @@ main =
       , layoutHook         = avoidStruts myLayout
       , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
+      , manageHook         = manageHook defaultConfig <+> manageDocks <+> myManageHook
       }

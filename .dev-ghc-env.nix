@@ -17,8 +17,8 @@ let
       protolude_git = self.callCabal2nix "protolude" (pkgs.fetchFromGitHub {
         owner  = "pierrer";
         repo   = "protolude";
-        rev = "03639fd5bb71297a61a4f9fd523a87fd40b9d280";
-        sha256 = "1h1b8rmr1qz7xvdaf2blj2z13zsqkj9a6zmql70b4hn38digddk8";
+        rev = "ab43a495b827a3c603a8db362482537cc368455c";
+        sha256 = "1siv60dgzlqdalhvw5nwl6q0cfkr406wgmwn8iswsgqdrpz6ba0a";
       }) {};
       dhall = self.callCabal2nix "dhall" (pkgs.fetchFromGitHub {
                 owner  = "Gabriel439";
@@ -59,6 +59,7 @@ let
       intero
       lens
       lens-aeson
+      managed
       megaparsec
       memory
       microlens

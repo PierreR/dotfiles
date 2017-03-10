@@ -11,6 +11,10 @@ _node () {
   compadd $(cat "$HOME/.local/share/cicd/.nodes-${zone}")
 }
 
+_stack () {
+  compadd bas bos brucat middleware fmx genericservices gis hms iam irisbox isr nova smartcity tms urbisaddress
+}
+
 _services () {
   local zone="$1"
   case $zone in
@@ -117,6 +121,9 @@ if (( CURRENT == 5 )); then
     case $words[4] in
         "-n")
             _node $words[2] && ret=0
+        ;;
+        "-s")
+            _stack && ret=0
         ;;
         status|reload)
             _services $words[2] && ret=0
