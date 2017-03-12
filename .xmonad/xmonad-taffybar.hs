@@ -37,9 +37,6 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     -- launch dmenu
     -- , ((modm, xK_p), GridSelect.spawnSelected GridSelect.def [ "eclipse", "chromium" ])
 
-    -- launch synapse
-    -- , ((modm, xK_a), spawn "synapse") 
-
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
     , ((modm .|. shiftMask, xK_comma ), spawn "emacs")
@@ -168,9 +165,6 @@ myStartupHook = do
   spawnOnce "stalonetray"
   spawnOnce "unclutter -root"
   spawn "albert"
-  -- spawn "synapse -s"
-  -- spawn "sh ~/.xinitrc"
-  -- spawnOnce "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
            [ className =? "Eclipse"  --> doFloat
