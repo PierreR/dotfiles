@@ -35,7 +35,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     , ((0, xK_F2 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
 
     -- launch dmenu
-    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium" ])
+    -- , ((modm, xK_p), GridSelect.spawnSelected GridSelect.def [ "eclipse", "chromium" ])
+
+    -- launch synapse
+    -- , ((modm, xK_a), spawn "synapse") 
 
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
@@ -164,13 +167,16 @@ myStartupHook = do
   setWMName "LG3D"
   spawnOnce "stalonetray"
   spawnOnce "unclutter -root"
-  spawnOnce "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
+  spawn "albert"
+  -- spawn "synapse -s"
+  -- spawn "sh ~/.xinitrc"
+  -- spawnOnce "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
            [ className =? "Eclipse"  --> doFloat
            , title =? "Eclipse" --> doFloat
-           -- , appName =? "albert" --> doIgnore
-	   ]
+	   , resource =? "albert" --> doFloat
+           ]
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
     ((modm, xK_semicolon), sendMessage (IncMasterN (-1))) :
@@ -179,7 +185,7 @@ azertyKeys conf@XConfig {modMask = modm} = M.fromList $
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 main =
-  xmonad =<< statusBar "taffybar" defaultPP toggleStrutsKey (ewmh $ uhook myConfig)
+  xmonad =<< statusBar "taffybar" def toggleStrutsKey (ewmh $ uhook myConfig)
   where
     uhook = withUrgencyHookC NoUrgencyHook urgentConfig
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
@@ -197,5 +203,5 @@ main =
       , layoutHook         = avoidStruts myLayout
       , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
-      , manageHook         = manageHook defaultConfig <+> manageDocks <+> myManageHook
+      , manageHook         = manageHook def <+> manageDocks <+> myManageHook
       }
