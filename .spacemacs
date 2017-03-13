@@ -330,6 +330,8 @@ you should place your code here."
   )
 
   (global-set-key [f5] 'browse-url-of-buffer)
+  (global-unset-key (kbd "C-SPC")) ; used by Albert
+  (global-set-key (kbd "C-S-SPC") 'set-mark-command)
   (global-auto-revert-mode t)
 
   (add-hook 'focus-out-hook 'save-buffer)
