@@ -164,7 +164,7 @@ myStartupHook = do
   setWMName "LG3D"
   spawnOnce "stalonetray"
   spawnOnce "unclutter -root"
-  spawn "albert"
+  spawn "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
            [ className =? "Eclipse"  --> doFloat
