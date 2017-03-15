@@ -30,6 +30,7 @@ tmp/
 .config/mimeapps.list
 .config/ranger
 .config/mr/
+.config/nixpkgs
 .config/vcsh/
 .config/mr/
 .config/chromium/

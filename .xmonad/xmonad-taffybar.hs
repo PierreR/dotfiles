@@ -170,6 +170,7 @@ myManageHook = composeAll
            [ className =? "Eclipse"  --> doFloat
            , title =? "Eclipse" --> doFloat
 	   , resource =? "albert" --> doFloat
+	   , className =? "Emacs" --> doShift "1"
            ]
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
