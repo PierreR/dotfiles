@@ -6,12 +6,12 @@ import qualified Data.Map                     as M
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
-
 import           XMonad
 import qualified XMonad.Actions.GridSelect as GridSelect
 import           XMonad.Actions.CycleWS
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.SetWMName
@@ -158,7 +158,6 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
---
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   setWMName "LG3D"
@@ -167,11 +166,13 @@ myStartupHook = do
   spawn "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
-           [ className =? "Eclipse"  --> doFloat
-           , title =? "Eclipse" --> doFloat
-	   , resource =? "albert" --> doFloat
-	   , className =? "Emacs" --> doShift "1"
-           ]
+  [isFullscreen --> doFullFloat 
+  , className =? "Eclipse"  --> doFloat
+  , title =? "Eclipse" --> doFloat
+  , resource =? "albert" --> doCenterFloat
+  , className =? "Emacs" --> doShift "1"
+  , isDialog --> doCenterFloat
+  ]
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
     ((modm, xK_semicolon), sendMessage (IncMasterN (-1))) :
@@ -199,4 +200,5 @@ main =
       , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
       , manageHook         = manageHook def <+> manageDocks <+> myManageHook
+      , logHook            = ewmhDesktopsLogHook 
       }
