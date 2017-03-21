@@ -162,7 +162,6 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   setWMName "LG3D"
   spawnOnce "stalonetray"
-  spawnOnce "unclutter -root"
   spawn "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
