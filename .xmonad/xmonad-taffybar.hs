@@ -187,7 +187,7 @@ main =
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
     myConfig  = def
-      { terminal           = "urxvt"
+      { terminal           = "urxvtc"
       , focusFollowsMouse  = False
       , borderWidth        = 1
       , modMask            = mod4Mask
