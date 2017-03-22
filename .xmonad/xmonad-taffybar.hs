@@ -33,6 +33,8 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- launch README
     , ((0, xK_F2 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
+    -- NixOS manual
+    , ((0, xK_F3 ), spawn "nixos-help")
 
     -- launch dmenu
     -- , ((modm, xK_p), GridSelect.spawnSelected GridSelect.def [ "eclipse", "chromium" ])
@@ -159,14 +161,13 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 myStartupHook = do
-  setDefaultCursor xC_left_ptr
+  -- setDefaultCursor xC_left_ptr
   setWMName "LG3D"
   spawnOnce "stalonetray"
   spawn "albert -p $(dirname $(readlink $(which albert)))/../lib/albert/plugins"
 
 myManageHook = composeAll
   [isFullscreen --> doFullFloat 
-  , className =? "Eclipse"  --> doFloat
   , title =? "Eclipse" --> doFloat
   , resource =? "albert" --> doCenterFloat
   , className =? "Emacs" --> doShift "1"

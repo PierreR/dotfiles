@@ -341,10 +341,9 @@ you should place your code here."
 
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-timer)
   (spacemacs/set-leader-keys-for-major-mode 'haskell-mode "t" 'intero-type-at)
-  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode "gp" 'beginning-of-defun)
-  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode "gn" 'end-of-defun)
 
   (spacemacs/toggle-golden-ratio-on)
+  (set-mouse-color "red")
 
   ;; Faster scrolling with C-e/C-y
   (setq-default evil-scroll-line-count 3)
