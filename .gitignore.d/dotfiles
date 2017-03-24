@@ -42,6 +42,7 @@ tmp/
 .config/gtk-2.0/
 .config/Zeal/
 .xmonad/xmonad-x86_64-linux
+.xmonad/xmonad.state
 .gitignore.d/mr
 .bash_history
 .Xauthority

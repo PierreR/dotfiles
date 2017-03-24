@@ -34,7 +34,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     -- launch README
     , ((0, xK_F2 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
     -- NixOS manual
-    , ((0, xK_F3 ), spawn "nixos-help")
+    , ((modm, xK_F2 ), spawn "nixos-help")
 
     -- launch dmenu
     -- , ((modm, xK_p), GridSelect.spawnSelected GridSelect.def [ "eclipse", "chromium" ])

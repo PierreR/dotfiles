@@ -12,22 +12,8 @@ let
   pkgs = import src { };
 
   hlib = import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { inherit pkgs; };
-  hpkgs = pkgs.haskellPackages.override {
-    overrides = self: super: {
-      protolude_git = self.callCabal2nix "protolude" (pkgs.fetchFromGitHub {
-        owner  = "pierrer";
-        repo   = "protolude";
-        rev = "ab43a495b827a3c603a8db362482537cc368455c";
-        sha256 = "1siv60dgzlqdalhvw5nwl6q0cfkr406wgmwn8iswsgqdrpz6ba0a";
-      }) {};
-      dhall = self.callCabal2nix "dhall" (pkgs.fetchFromGitHub {
-                owner  = "Gabriel439";
-                repo   = "Haskell-Dhall-Library";
-                rev    = "505a786c6dd7dcc37e43f3cc96031d30028625be";
-                sha256 = "1dsjy4czxcwh4gy7yjffzfrbb6bmnxbixf1sy8aqrbkavgmh8s29";
-              }) {};
-    };
-  };
+  dhall = pkgs.haskellPackages.dhall_git;
+  protolude = pkgs.haskellPackages.protolude_git;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
       aeson
       ansi-wl-pprint
