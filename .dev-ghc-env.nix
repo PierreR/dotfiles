@@ -1,17 +1,8 @@
-
 let
-  bootstrap = import <nixpkgs> { };
-  nixpkgs = builtins.fromJSON (builtins.readFile ./.nixpkgs.json);
+  pkgs = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/64218d61fc0b66722b1c97bab07cd1569d2d0471.tar.gz) {}; # at 2017-03-20
 
-  src = bootstrap.fetchFromGitHub {
-    owner = "NixOS";
-    repo  = "nixpkgs";
-    inherit (nixpkgs) rev sha256;
-  };
-
-  pkgs = import src { };
-
-  hlib = import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { inherit pkgs; };
+  hlib = pkgs.haskell.lib;
+  hpkgs = pkgs.haskellPackages;
   dhall = pkgs.haskellPackages.dhall_git;
   protolude = pkgs.haskellPackages.protolude_git;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
