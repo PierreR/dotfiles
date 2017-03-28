@@ -1,6 +1,7 @@
 projects/
 Downloads/
 tmp/
+.xmonar/
 .puppetlabs/
 .gnupg/
 .gnome/
@@ -27,6 +28,7 @@ tmp/
 .ghc/
 .swt/
 .fluxbox/
+.config/taffybar/
 .config/mimeapps.list
 .config/ranger
 .config/mr/
@@ -41,8 +43,7 @@ tmp/
 .config/Brackets/
 .config/gtk-2.0/
 .config/Zeal/
-.xmonad/xmonad-x86_64-linux
-.xmonad/xmonad.state
+.xmonad/
 .gitignore.d/mr
 .bash_history
 .Xauthority
@@ -62,3 +63,4 @@ tmp/
 *.swo
 *.un~
 *-hsts
+.xmobarrc
