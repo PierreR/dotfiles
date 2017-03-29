@@ -1,0 +1,4 @@
+10.0     /home/vagrant/projects/cicd/devbox/box
+10.0    /home/vagrant/projects/cicd/puppet/middleware
+10.0	/home/vagrant/projects/cicd/puppet/language-puppet
+10.0	/home/vagrant/projects/cicd/shell
