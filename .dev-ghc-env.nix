@@ -1,7 +1,8 @@
 let
-  pkgs = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/08c87eed00c7478a03d965570feb50c8f317ce5f.tar.gz) {}; # at 2017-03-29
+  pkgs = import <nixpkgs> {};
+  pinned = import .config/nixpkgs/pin.nix;
 
-  hpkgs = pkgs.haskellPackages;
+  hpkgs = pinned.haskellPackages;
   dhall = hpkgs.dhall_git;
   protolude = hpkgs.protolude_git;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
